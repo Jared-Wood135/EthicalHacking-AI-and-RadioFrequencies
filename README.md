@@ -1,2 +1,86 @@
 # EthicalHacking-AI-and-RadioFrequencies
-Training AI to listen to signal frequencies, determine modulation type and other radio settings in order to listen to information carried in a signal
+
+The intent is primarily a proof-of-concept, information gain, and broad applications of Ethcial Hacking concepts (i.e. Security Layers) and Artificial Intelligence (AI).
+
+This project takes DEEPSIG's RADIOML 2018.01A dataset and simplifies it for the initial objective to train a model in signal modulation classification to then apply ethical hacking concepts.
+
+
+
+
+
+## Table of Contents
+
+- [Environment Setup](#environment-setup)
+- [Objectives](#objectives)
+- [Known Issues](#known-issues)
+
+
+
+
+
+## Environment Setup
+
+[Back to Table of Contents](#table-of-contents)
+
+***WARNING:*** The environment has not been established yet!
+You have two options for setting up your Python environment:
+
+### Option 1: Conda (Recommended)
+
+**Conda** is an open-source environment and package manager that makes it easy to manage Python versions and dependencies. If you do not already use an environment manager, you may want to familiarize yourself with one since it helps avoid conflicts and makes reproducibility easier.  I use Conda and I think it's the easiest (Though I haven't used other packages)
+
+**Steps:**
+1. Install [Anaconda](https://www.anaconda.com/products/distribution) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
+2. Clone this repository (Or just download ```environment.yml```).
+3. Navigate to the `final` directory.
+4. Create the environment using the provided `environment.yml`:
+	```bash
+	conda env create -f environment.yml
+	conda activate COMP3703
+	```
+
+### Option 2: pip (Use with Caution)
+
+You can also use `pip` with the `requirements.txt` file. Using pip does not manage Python versions, so you must ensure your Python version matches the requirements.
+
+**Steps:**
+1. Ensure you are using a compatible Python version (see above).
+2. Clone this repository (Or just download requirements.txt).
+3. Navigate to the `final` directory.
+4. Install dependencies:
+	```bash
+	pip install -r requirements.txt
+
+
+
+
+
+## Objectives
+
+[Back to Table of Contents](#table-of-contents)
+
+- [] Acquire Dataset
+- [] Determine Signal Modulation Classifiers
+- [] Clean Dataset
+    - [] Remove modulation classifiers not intended to keep
+    - [] Handle nulls
+    - [] Make data consistent (i.e. Strings lowercased)
+- [] Determine ML/NN Type and/or Structure
+- [] Initial Exploration of Clean Dataset
+- [] Prepare Dataset
+    - [] Apply encoding if necessary
+    - [] Apply normalization if necessary
+    - [] Apply feature engineering if necessary
+- [] Train and Test Models
+- [] Identify Best Model
+- [] TBD: Ethical Hacking Portion
+
+
+
+
+
+## Known Issues
+
+[Back to Table of Contents](#table-of-contents)
+
+- Environment files are not setup yet
