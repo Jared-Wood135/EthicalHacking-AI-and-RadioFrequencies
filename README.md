@@ -10,9 +10,23 @@ This project takes DEEPSIG's RADIOML 2018.01A dataset and simplifies it for the 
 
 ## Table of Contents
 
+- [Acknowledgements](#acknowledgements)
 - [Environment Setup](#environment-setup)
 - [Objectives](#objectives)
 - [Known Issues](#known-issues)
+
+
+
+
+
+## Acknowledgements
+
+[Back to Table of Contents](#table-of-contents)
+
+- **DATASET:** [DEEPSIG RADIOML 2018.01A](https://www.deepsig.ai/datasets/)
+    - **LICENSE:** [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+    - **CHANGES MADE:**
+        - TBD
 
 
 
