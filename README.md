@@ -73,18 +73,24 @@ You can also use `pip` with the `requirements.txt` file. Using pip does not mana
 
 [Back to Table of Contents](#table-of-contents)
 
-- [] Acquire Dataset
-- [] Determine Signal Modulation Classifiers
-- [] Clean Dataset
-    - [] Remove modulation classifiers not intended to keep
-    - [] Handle nulls
-    - [] Make data consistent (i.e. Strings lowercased)
-- [] Determine ML/NN Type and/or Structure
-- [] Initial Exploration of Clean Dataset
-- [] Prepare Dataset
-    - [] Apply encoding if necessary
-    - [] Apply normalization if necessary
-    - [] Apply feature engineering if necessary
+- [x] Acquire Dataset
+- [x] Determine Signal Modulation Classifiers
+- [x] Clean Dataset
+    - [x] Remove modulation classifiers not intended to keep
+    - [x] Handle nulls
+    - [x] Make data consistent (i.e. Strings lowercased)
+- [x] Determine ML/NN Type and/or Structure
+- [x] Initial Exploration of Clean Dataset
+- [x] Prepare Dataset
+    - [x] Apply encoding if necessary
+    - [x] Apply normalization if necessary
+    - [x] Apply feature engineering if necessary
+- [] Acquire Baseline Model
+- [] Feature Engineering
+    - [] Constellation Graph?
+    - [] Signal bursts?
+    - [] Signal timing?
+    - [] Follow-on?
 - [] Train and Test Models
 - [] Identify Best Model
 - [] TBD: Ethical Hacking Portion
