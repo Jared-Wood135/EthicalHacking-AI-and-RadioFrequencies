@@ -67,7 +67,7 @@ MOD_TYPE_MAPPING = {
 # START Helper Functions
 # =================================================================================================
 
-def print_hdf5_dataset_info(hdf5_data_filepath:str=FILEPATH_RAWDATA) -> None:
+def print_hdf5_dataset_info(hdf5_data_filepath: str = FILEPATH_RAWDATA) -> None:
     """
     About
     -----
@@ -98,7 +98,7 @@ def print_hdf5_dataset_info(hdf5_data_filepath:str=FILEPATH_RAWDATA) -> None:
         print(f'\033[31m{hdf5_data_filepath} not found!\033[0m')
     
 
-def print_mod_type_mapping(txt_mod_filepath:str=FILEPATH_MODCLASS) -> dict:
+def print_mod_type_mapping(txt_mod_filepath: str = FILEPATH_MODCLASS) -> dict:
     """
     About
     -----
@@ -147,8 +147,8 @@ def print_mod_type_mapping(txt_mod_filepath:str=FILEPATH_MODCLASS) -> dict:
 
 
 def print_mod_type_counts(
-        hdf5_data_filepath:str=FILEPATH_RAWDATA,
-        mod_type_mapping:dict=MOD_TYPE_MAPPING
+        hdf5_data_filepath: str = FILEPATH_RAWDATA,
+        mod_type_mapping: dict = MOD_TYPE_MAPPING
 ) -> None:
     """
     About
@@ -312,12 +312,12 @@ def print_highest_snr_distribution(
 
 
 def vis_signal(
-    hdf5_data_filepath:str=FILEPATH_RAWDATA,
-    mod_type_mapping:dict=MOD_TYPE_MAPPING,
-    idx:int=None,
-    mod_type:str=None,
-    save_path:int=None,
-    random_state:int=35
+    hdf5_data_filepath: str = FILEPATH_RAWDATA,
+    mod_type_mapping: dict = MOD_TYPE_MAPPING,
+    idx: int = None,
+    mod_type: str = None,
+    save_path: int = None,
+    random_state: int = 35
 ) -> int:
     """
     About
@@ -449,15 +449,17 @@ def create_highest_snr_reduced_hdf5(
         hdf5_data_filepath: str = FILEPATH_RAWDATA,
         output_hdf5_filepath: str = "../Datasets/highest_snr_reduced_df.hdf5",
         mod_type_mapping: dict = MOD_TYPE_MAPPING,
-        chunk_size: int = 5000
+        signals_per_mod_type: int = 1000,
+        chunk_size: int = 5000,
+        random_state: int = 42
 ) -> None:
     """
     About
     -----
-    - Creates a reduced .hdf5 file containing only the highest-SNR (30) signals
+    - Creates a reduced .hdf5 file containing only the highest-SNR signals
       from the original DeepSig .hdf5 dataset
-    - Keeps all modulation types, but only includes examples where SNR is the
-      maximum SNR value found in the dataset
+    - Keeps all modulation types
+    - Randomly selects 1000 signals from each modulation type at the highest SNR
     - Saves the reduced dataset with X, Y, Z, and original_indices datasets
 
     Parameters
@@ -475,9 +477,17 @@ def create_highest_snr_reduced_hdf5(
         - Dictionary mapping class index to modulation name.
         - Example: {0: "OOK", 1: "4ASK", ...}
 
+    - signals_per_mod_type (int):
+        - DEFAULT: 1000
+        - Number of highest-SNR signals to keep per modulation type
+
     - chunk_size (int):
         - DEFAULT: 5000
         - Number of signals copied at a time to avoid loading too much into memory
+
+    - random_state (int):
+        - DEFAULT: 42
+        - Random seed for reproducible sampling
 
     Throws
     ------
@@ -488,13 +498,17 @@ def create_highest_snr_reduced_hdf5(
     -------
     - None
     """
+
     # ========== Ensure Output Path Exists ========================================================
     output_dir = os.path.dirname(output_hdf5_filepath)
 
     if output_dir != "":
         os.makedirs(output_dir, exist_ok=True)
 
-    #========== Filter Highest SNR Signals ========================================================
+    # ========== Random Number Generator ==========================================================
+    rng = np.random.default_rng(random_state)
+
+    # ========== Filter Highest SNR Signals and Sample Per Mod Type ===============================
     with h5py.File(hdf5_data_filepath, "r") as f_in:
 
         # Load mod types and SNRs
@@ -507,14 +521,43 @@ def create_highest_snr_reduced_hdf5(
         # Find highest SNR value
         highest_snr = np.max(Z)
 
-        # Create mask for highest SNR signals
-        highest_snr_mask = np.isclose(Z, highest_snr)
+        # Create list to store selected indices
+        selected_indices = []
 
-        # Get indices of highest SNR signals
-        highest_snr_indices = np.where(highest_snr_mask)[0]
+        # Loop through each modulation type
+        for mod_id in sorted(mod_type_mapping.keys()):
+
+            # Get indices matching both:
+            # 1. highest SNR
+            # 2. current modulation type
+            mod_highest_snr_indices = np.where(
+                (np.isclose(Z, highest_snr)) &
+                (mod_labels == mod_id)
+            )[0]
+
+            # Make sure there are enough signals
+            if len(mod_highest_snr_indices) < signals_per_mod_type:
+                raise ValueError(
+                    f"Modulation type {mod_type_mapping[mod_id]} only has "
+                    f"{len(mod_highest_snr_indices)} signals at highest SNR, "
+                    f"but {signals_per_mod_type} were requested."
+                )
+
+            # Randomly select 1000 signals for this modulation type
+            chosen_indices = rng.choice(
+                mod_highest_snr_indices,
+                size=signals_per_mod_type,
+                replace=False
+            )
+
+            selected_indices.extend(chosen_indices)
+
+        # Convert to NumPy array and sort for h5py indexing
+        selected_indices = np.array(selected_indices)
+        selected_indices = np.sort(selected_indices)
 
         # Count total reduced signals
-        total_reduced_signals = len(highest_snr_indices)
+        total_reduced_signals = len(selected_indices)
 
         # Get original dataset shapes
         X_shape = f_in["X"].shape
@@ -556,7 +599,7 @@ def create_highest_snr_reduced_hdf5(
 
             indices_out = f_out.create_dataset(
                 "original_indices",
-                data=highest_snr_indices,
+                data=selected_indices,
                 compression="gzip",
                 compression_opts=4
             )
@@ -564,21 +607,25 @@ def create_highest_snr_reduced_hdf5(
             # Store useful metadata as attributes
             f_out.attrs["source_file"] = hdf5_data_filepath
             f_out.attrs["highest_snr"] = highest_snr
+            f_out.attrs["signals_per_mod_type"] = signals_per_mod_type
             f_out.attrs["num_signals"] = total_reduced_signals
-            f_out.attrs["description"] = "Reduced DeepSig dataset containing only highest-SNR signals"
+            f_out.attrs["description"] = (
+                "Reduced DeepSig dataset containing 1000 highest-SNR signals "
+                "per modulation type"
+            )
 
             # Copy data in chunks
             for start in range(0, total_reduced_signals, chunk_size):
                 end = min(start + chunk_size, total_reduced_signals)
 
-                batch_indices = highest_snr_indices[start:end]
+                batch_indices = selected_indices[start:end]
 
                 X_out[start:end] = f_in["X"][batch_indices]
                 Y_out[start:end] = f_in["Y"][batch_indices]
                 Z_out[start:end] = f_in["Z"][batch_indices]
 
     # ========== Print Summary ====================================================================
-    reduced_mod_labels = mod_labels[highest_snr_indices]
+    reduced_mod_labels = mod_labels[selected_indices]
 
     unique_mod_type, counts = np.unique(reduced_mod_labels, return_counts=True)
 
@@ -600,7 +647,8 @@ def create_highest_snr_reduced_hdf5(
     print("\033[32mhighest_snr_reduced_df.hdf5 file created successfully!\033[0m")
     print("Output filepath:", output_hdf5_filepath)
     print("Highest SNR:", highest_snr)
-    print("Total highest-SNR signals:", total_reduced_signals)
+    print("Signals per modulation type:", signals_per_mod_type)
+    print("Total reduced signals:", total_reduced_signals)
     print()
     print(df_counts)
 
