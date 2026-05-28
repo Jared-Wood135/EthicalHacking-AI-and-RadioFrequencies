@@ -1,63 +1,59 @@
 '''
 FILE OVERVIEW:
-- 
+- Code and functions specifically for highest_snr_baseline.ipynb
+- This is primarily for reproducibility and maintaining presentability of highest_snr_baseline.ipynb
+- This file pulls the MOD_TYPE_MAPPING variable from "acquire.py"
 
 =================================================
 
 MISC COMMENTS:
-- 
+- THIS ASSUMES YOU HAVE THE REDUCED DATASET '../Datasets/highest_snr_reduced_df.hdf5'
+- Because of the nature of the dataset, there will NOT be any data preparation since
+  the data appears to already be uniformly distributed and represents signals accurately
 
 =================================================
 
 FILE CONTENTS:
 - File Overview, Imports, Global Variables
 - Helper Functions
-    - Thing 1
-    - Thing 2
+    - get_rfc
+    - train_and_test_model
+    - save_baseline
 - Main Function
 '''
 # ----- Imports -----------------------------------------------------------------------------------
+import numpy as np              # Iteration over arrays (I/Q signal array)
+import pandas as pd             # Easier dataset manipulation
+import h5py                     # Reading .hdf5 datasets
+import matplotlib.pyplot as plt # Visualizations
 
+# Random Forest Classifier (ML)
+from sklearn.ensemble import RandomForestClassifier
+
+# Hyper-parameter tuning
+from sklearn.model_selection import GridSearchCV
+
+# Standard model performance metrics
+from sklearn.metrics import roc_auc_score, accuracy_score, precision_score, recall_score
 
 # ----- Global Variables --------------------------------------------------------------------------
-
+from acquire import MOD_TYPE_MAPPING    # Modulation ID and name mapping
+HIGHEST_SNR_REDUCED_DF = '../Datasets/highest_snr_reduced_df.hdf5'
 
 # =================================================================================================
 # END File Overview, Imports, Global Variables
 # START Helper Functions
 # =================================================================================================
 
-def thing1():
-    '''
-    About
-    -----
-    - Some placeholder function
-
-    Parameters
-    ----------
-    - ray_nn_train_func (Function) :
-        - The Ray-Train function logic for MLflow to wrap and log information from
-
-    - framework (str) :
-        - Default: pytorch (Not implemented)
-        - String representation of the NN framework used (NOT IMPLEMENTED)
-
-    Raises
-    ------
-    - RunTimeError
-        - Generally if anything should fail to log properly
-
-    - NotImplementedError
-        - Generally if something has not been implemented yet, particularly with framework types
-
-    Returns
-    -------
-    - Wraps the Ray-train function with MLflow logging logic to display results on MLflow UI
-    '''
+def get_rfc():
     pass
 
 
-def thing2():
+def train_and_test_model():
+    pass
+
+
+def save_baseline():
     pass
 
 # =================================================================================================
@@ -65,7 +61,29 @@ def thing2():
 # START Main Function
 # =================================================================================================
 
+def main():
+    """
+    About
+    -----
+    - Simply runs everything from above
 
+    Dependencies
+    ------------
+    - 
+
+    Parameters
+    ----------
+    - None
+
+    Raises
+    ------
+    - None
+
+    Returns
+    -------
+    - None
+    """
+    pass
 
 # =================================================================================================
 # END Main Function
