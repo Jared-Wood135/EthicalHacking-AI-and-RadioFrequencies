@@ -7,7 +7,7 @@ FILE OVERVIEW:
 
 MISC COMMENTS:
 - If you download the full 42GB file, please ensure that it lives in the root of this repository in a directory "Datasets"
-- The created highest_snr_reduced_df.hdf5 should only be ~1.5GB
+- The created highest_snr_reduced_df.hdf5 should only be ~0.35GB
 
 =================================================
 
