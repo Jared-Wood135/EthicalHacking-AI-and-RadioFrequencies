@@ -36,7 +36,6 @@ This project takes DEEPSIG's RADIOML 2018.01A dataset and simplifies it for the 
 
 [Back to Table of Contents](#table-of-contents)
 
-***WARNING:*** The environment has not been established yet!
 You have two options for setting up your Python environment:
 
 ### Option 1: Conda (Recommended)
@@ -64,6 +63,7 @@ You can also use `pip` with the `environment.txt` file. Using pip does not manag
 4. Install dependencies:
 	```bash
 	pip install -r environment.txt
+    ```
 
 
 
@@ -93,6 +93,10 @@ You can also use `pip` with the `environment.txt` file. Using pip does not manag
     - [] Follow-on?
 - [] Train and Test Models
 - [] Identify Best Model
+- [] Signal Simulation?
+    - [] Determine "Hacking" Equivalence
+    - [] Create a simulated encrypted signal
+    - [] Simulate decrypting the signal via hacking?
 - [] TBD: Ethical Hacking Portion
 
 
