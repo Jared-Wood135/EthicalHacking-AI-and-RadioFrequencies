@@ -55,15 +55,15 @@ You have two options for setting up your Python environment:
 
 ### Option 2: pip (Use with Caution)
 
-You can also use `pip` with the `requirements.txt` file. Using pip does not manage Python versions, so you must ensure your Python version matches the requirements.
+You can also use `pip` with the `environment.txt` file. Using pip does not manage Python versions, so you must ensure your Python version matches the requirements.
 
 **Steps:**
 1. Ensure you are using a compatible Python version (see above).
-2. Clone this repository (Or just download requirements.txt).
+2. Clone this repository (Or just download environment.txt).
 3. Navigate to the `final` directory.
 4. Install dependencies:
 	```bash
-	pip install -r requirements.txt
+	pip install -r environment.txt
 
 
 
@@ -102,5 +102,3 @@ You can also use `pip` with the `requirements.txt` file. Using pip does not mana
 ## Known Issues
 
 [Back to Table of Contents](#table-of-contents)
-
-- Environment files are not setup yet
