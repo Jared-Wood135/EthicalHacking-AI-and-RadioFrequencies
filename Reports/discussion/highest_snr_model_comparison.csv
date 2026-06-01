@@ -1,0 +1,4 @@
+model_key,model_name,input_type,num_features_used,accuracy,precision_weighted,recall_weighted,roc_auc_ovr_weighted
+baseline,Raw I/Q RFC Baseline,flattened_raw_iq,2048,0.3620833333333333,0.3400796571828109,0.3620833333333333,0.8339805932971014
+all_features,All Engineered Features RFC,engineered_features,105,0.7216666666666667,0.7120157655664046,0.7216666666666667,0.9780153079710144
+top_features,Top Selected Features RFC,selected_engineered_features,25,0.69375,0.6863657143056958,0.69375,0.9729046648550725

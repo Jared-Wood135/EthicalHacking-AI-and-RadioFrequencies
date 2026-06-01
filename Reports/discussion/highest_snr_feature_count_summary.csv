@@ -1,0 +1,4 @@
+feature_set,num_features,notes
+Raw flattened I/Q baseline,2048,1024 I/Q samples flattened into 2048 raw values
+All engineered features,105,Detected from feature-quality artifact; one row per engineered feature
+Top selected features,25,Selected by information_gain
