@@ -100,9 +100,15 @@ You can also use `pip` with the `environment.txt` file. Using pip does not manag
 - [x] Train and Test Models
 - [x] Identify Best Model
 - [] Signal Simulation?
-    - [] Determine "Hacking" Equivalence
-    - [] Create a simulated encrypted signal
-    - [] Simulate decrypting the signal via hacking?
+    - [] Textual Input To Bits
+    - [] Bits to Textual Output
+    - [] Modulation Masking of Bits
+    - [] Mock Encryption Masking of Bits
+    - [] Simulate Wrong Modulation, Wrong Encryption
+    - [] Simulate Wrong Modulation, Correct Encryption
+    - [] Simulate Correct Modulation, Wrong Encryption
+    - [] Simulate Correct Modulation, Correct Encryption
+    - [] Add audio variant?
 - [] TBD: Ethical Hacking Portion
 
 
