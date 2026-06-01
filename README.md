@@ -26,7 +26,8 @@ This project takes DEEPSIG's RADIOML 2018.01A dataset and simplifies it for the 
 - **DATASET:** [DEEPSIG RADIOML 2018.01A](https://www.deepsig.ai/datasets/)
     - **LICENSE:** [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
     - **CHANGES MADE:**
-        - TBD
+        - Dataset reduced down to only SNR 30 for baseline establishment
+        - This reduced dataset was then used to feature engineer a multitude of seemingly typical information of a signals anaylsis' pipeline
 
 
 
@@ -85,12 +86,17 @@ You can also use `pip` with the `environment.txt` file. Using pip does not manag
     - [x] Apply encoding if necessary
     - [x] Apply normalization if necessary
     - [x] Apply feature engineering if necessary
-- [] Acquire Baseline Model
+- [x] Acquire Baseline Model
 - [] Feature Engineering
-    - [] Constellation Graph?
-    - [] Signal bursts?
-    - [] Signal timing?
-    - [] Follow-on?
+    - [] Extract I/Q Stats/Metrics
+    - [] Extract Magnitude Stats/Metrics
+    - [] Extract Power Stats/Metrics
+    - [] Extract Phase Stats/Metrics
+    - [] Extract Frequency Stats/Metrics
+    - [] Extract FFT Stats/Metrics
+    - [] Extract Spectral Stats/Metrics
+    - [] Extract Constellation
+    - [] Create and save feature engineered dataset
 - [] Train and Test Models
 - [] Identify Best Model
 - [] Signal Simulation?
