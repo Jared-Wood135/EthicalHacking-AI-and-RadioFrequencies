@@ -1,0 +1,31 @@
+{
+    "selection_method": "information_gain",
+    "top_n": 25,
+    "selected_feature_names": [
+        "magnitude_cv",
+        "radius_std",
+        "std_magnitude",
+        "power_cv",
+        "std_power",
+        "iqr_magnitude",
+        "max_power",
+        "max_magnitude",
+        "radius_unique_rounded_count",
+        "q75_magnitude",
+        "q25_magnitude",
+        "std_inst_freq",
+        "range_magnitude",
+        "radius_mean",
+        "mean_magnitude",
+        "kurtosis_magnitude",
+        "range_inst_freq",
+        "iqr_inst_freq",
+        "quadrant_balance_std",
+        "kurtosis_inst_freq",
+        "peak_to_average_power_ratio",
+        "std_phase",
+        "max_fft_magnitude",
+        "max_fft_power",
+        "std_fft_power"
+    ]
+}
