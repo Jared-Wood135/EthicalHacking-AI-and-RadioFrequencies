@@ -87,16 +87,16 @@ You can also use `pip` with the `environment.txt` file. Using pip does not manag
     - [x] Apply normalization if necessary
     - [x] Apply feature engineering if necessary
 - [x] Acquire Baseline Model
-- [] Feature Engineering
-    - [] Extract I/Q Stats/Metrics
-    - [] Extract Magnitude Stats/Metrics
-    - [] Extract Power Stats/Metrics
-    - [] Extract Phase Stats/Metrics
-    - [] Extract Frequency Stats/Metrics
-    - [] Extract FFT Stats/Metrics
-    - [] Extract Spectral Stats/Metrics
-    - [] Extract Constellation
-    - [] Create and save feature engineered dataset
+- [x] Feature Engineering
+    - [x] Extract I/Q Stats/Metrics
+    - [x] Extract Magnitude Stats/Metrics
+    - [x] Extract Power Stats/Metrics
+    - [x] Extract Phase Stats/Metrics
+    - [x] Extract Frequency Stats/Metrics
+    - [x] Extract FFT Stats/Metrics
+    - [x] Extract Spectral Stats/Metrics
+    - [x] Extract Constellation
+    - [x] Create and save feature engineered dataset
 - [] Train and Test Models
 - [] Identify Best Model
 - [] Signal Simulation?
