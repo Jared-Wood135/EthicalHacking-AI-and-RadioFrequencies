@@ -149,7 +149,6 @@ def train_and_test_model(
         - grid_search object
         - cv_results_df
     """
-
     # ========== Load Dataset =====================================================================
     with h5py.File(hdf5_data_filepath, "r") as f:
         X = f["X"][:]
