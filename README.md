@@ -97,8 +97,8 @@ You can also use `pip` with the `environment.txt` file. Using pip does not manag
     - [x] Extract Spectral Stats/Metrics
     - [x] Extract Constellation
     - [x] Create and save feature engineered dataset
-- [] Train and Test Models
-- [] Identify Best Model
+- [x] Train and Test Models
+- [x] Identify Best Model
 - [] Signal Simulation?
     - [] Determine "Hacking" Equivalence
     - [] Create a simulated encrypted signal
