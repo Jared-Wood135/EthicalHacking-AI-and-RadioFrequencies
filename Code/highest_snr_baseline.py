@@ -25,6 +25,7 @@ FILE CONTENTS:
 import os
 import json
 import joblib
+import platform
 
 import numpy as np              # Iteration over arrays (I/Q signal array)
 import pandas as pd             # Easier dataset manipulation
@@ -59,6 +60,44 @@ BASELINE_METRICS_OUTPUT_PATH = "../Models/highest_snr_random_forest_baseline_met
 # END File Overview, Imports, Global Variables
 # START Helper Functions
 # =================================================================================================
+
+def make_json_safe(obj):
+    """
+    Converts NumPy / pandas / sklearn objects into JSON-safe Python objects.
+    """
+
+    if isinstance(obj, dict):
+        return {str(key): make_json_safe(value) for key, value in obj.items()}
+
+    if isinstance(obj, list):
+        return [make_json_safe(value) for value in obj]
+
+    if isinstance(obj, tuple):
+        return [make_json_safe(value) for value in obj]
+
+    if isinstance(obj, np.ndarray):
+        return obj.tolist()
+
+    if isinstance(obj, np.integer):
+        return int(obj)
+
+    if isinstance(obj, np.floating):
+        return float(obj)
+
+    if isinstance(obj, np.bool_):
+        return bool(obj)
+
+    if isinstance(obj, pd.DataFrame):
+        return obj.to_dict(orient="records")
+
+    if obj is None:
+        return None
+
+    if isinstance(obj, (str, int, float, bool)):
+        return obj
+
+    return str(obj)
+
 
 def get_rfc(
         random_state: int = 35
