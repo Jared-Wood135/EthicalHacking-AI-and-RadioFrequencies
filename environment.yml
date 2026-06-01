@@ -70,9 +70,13 @@ dependencies:
       - matplotlib==3.10.9
       - numpy==2.4.6
       - pandas==3.0.3
+      - parquet==1.3.1
       - pillow==12.2.0
+      - ply==3.11
+      - pyarrow==24.0.0
       - pyparsing==3.3.2
       - scikit-learn==1.8.0
       - scipy==1.17.1
       - threadpoolctl==3.6.0
+      - thriftpy2==0.6.0
 prefix: /opt/anaconda3/envs/RF_HACKING_AI
