@@ -37,6 +37,7 @@ This project takes DEEPSIG's RADIOML 2018.01A dataset and simplifies it for the 
 
 [Back to Table of Contents](#table-of-contents)
 
+Python version in both environments: 3.13.5
 You have two options for setting up your Python environment:
 
 ### Option 1: Conda (Recommended)
@@ -46,8 +47,7 @@ You have two options for setting up your Python environment:
 **Steps:**
 1. Install [Anaconda](https://www.anaconda.com/products/distribution) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 2. Clone this repository (Or just download ```environment.yml```).
-3. Navigate to the `final` directory.
-4. Create the environment using the provided `environment.yml`:
+3. Create the environment using the provided `environment.yml`:
 	```bash
 	conda env create -f environment.yml
 	conda activate COMP3703
@@ -60,8 +60,7 @@ You can also use `pip` with the `environment.txt` file. Using pip does not manag
 **Steps:**
 1. Ensure you are using a compatible Python version (see above).
 2. Clone this repository (Or just download environment.txt).
-3. Navigate to the `final` directory.
-4. Install dependencies:
+3. Install dependencies:
 	```bash
 	pip install -r environment.txt
     ```
