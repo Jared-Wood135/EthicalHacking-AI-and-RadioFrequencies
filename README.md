@@ -50,7 +50,7 @@ You have two options for setting up your Python environment:
 3. Create the environment using the provided `environment.yml`:
 	```bash
 	conda env create -f environment.yml
-	conda activate COMP3703
+	conda activate RF_HACKING_AI
 	```
 
 ### Option 2: pip (Use with Caution)
