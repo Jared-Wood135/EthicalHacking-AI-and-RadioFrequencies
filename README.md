@@ -75,7 +75,9 @@ You can also use `pip` with the `environment.txt` file. Using pip does not manag
 
 [Back to Table of Contents](#table-of-contents)
 
-**NOTE:** The `Presentations` folder has a presentation with/without notes and may give a good enough summation of the entire project in ~10 minutes.
+**NOTE:**
+- The `Presentations` folder has a presentation with/without notes and may give a good enough summation of the entire project in ~10 minutes
+- The `KeyImages` folder has some images of what I deem to be in-line with the key takeaways from the current state of the project
 
 ### High Level Overview
 
