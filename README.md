@@ -28,7 +28,7 @@ This project takes DEEPSIG's RADIOML 2018.01A dataset and simplifies it for the 
     - **LICENSE:** [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
     - **CHANGES MADE:**
         - Dataset reduced down to only SNR 30 for baseline establishment
-        - This reduced dataset was then used to feature engineer a multitude of seemingly typical information of a signals anaylsis' pipeline
+        - This reduced dataset was then used to feature engineer a multitude of seemingly typical information of a signals intelligence anaylsts' pipeline
 
 
 
