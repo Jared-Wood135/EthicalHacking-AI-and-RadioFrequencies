@@ -1,0 +1,14 @@
+\contentsline {section}{Abstract}{1}{Doc-Start}%
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {2}Methods}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Dataset Acquisition and Reduction}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Data Preparation and Exploration}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Model Selection}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Performance Metrics}{4}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Feature Engineering}{5}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Feature Selection}{6}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Simulation}{6}{subsection.2.7}%
+\contentsline {section}{\numberline {3}Results}{7}{section.3}%
+\contentsline {section}{\numberline {4}Discussion}{10}{section.4}%
+\contentsline {section}{\numberline {5}Conclusion}{12}{section.5}%
+\contentsline {section}{Resources Cited}{13}{section.5}%
