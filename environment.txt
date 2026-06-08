@@ -11,10 +11,12 @@ h5py==3.16.0
 ipykernel @ file:///Users/runner/miniforge3/conda-bld/bld/rattler-build_ipykernel_1770566135/work
 ipython @ file:///home/conda/feedstock_root/build_artifacts/bld/rattler-build_ipython_1777038396/work
 ipython_pygments_lexers @ file:///home/conda/feedstock_root/build_artifacts/ipython_pygments_lexers_1737123620466/work
+ipywidgets==8.1.8
 jedi @ file:///home/conda/feedstock_root/build_artifacts/jedi_1733300866624/work
 joblib==1.5.3
 jupyter_client @ file:///home/conda/feedstock_root/build_artifacts/bld/rattler-build_jupyter_client_1767954655/work
 jupyter_core @ file:///home/conda/feedstock_root/build_artifacts/bld/rattler-build_jupyter_core_1760643864/work
+jupyterlab_widgets==3.0.16
 kiwisolver==1.5.0
 matplotlib==3.10.9
 matplotlib-inline @ file:///home/conda/feedstock_root/build_artifacts/matplotlib-inline_1778264321245/work
@@ -49,3 +51,4 @@ traitlets @ file:///home/conda/feedstock_root/build_artifacts/bld/rattler-build_
 typing_extensions @ file:///home/conda/feedstock_root/build_artifacts/bld/rattler-build_typing_extensions_1756220668/work
 wcwidth @ file:///home/conda/feedstock_root/build_artifacts/wcwidth_1777744409267/work
 wheel==0.45.1
+widgetsnbextension==4.0.15

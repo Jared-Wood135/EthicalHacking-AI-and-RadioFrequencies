@@ -65,7 +65,9 @@ dependencies:
       - cycler==0.12.1
       - fonttools==4.63.0
       - h5py==3.16.0
+      - ipywidgets==8.1.8
       - joblib==1.5.3
+      - jupyterlab-widgets==3.0.16
       - kiwisolver==1.5.0
       - matplotlib==3.10.9
       - numpy==2.4.6
@@ -79,4 +81,5 @@ dependencies:
       - scipy==1.17.1
       - threadpoolctl==3.6.0
       - thriftpy2==0.6.0
+      - widgetsnbextension==4.0.15
 prefix: /opt/anaconda3/envs/RF_HACKING_AI
